@@ -20,7 +20,7 @@ var accessToken = await paytm.getAccessToken(oauthToken);
 2. Use Access token for full access to account
 
 ```dart
-print(await paytm.getPaytmWalletHistory(accessToken));
+print(await paytm.getWalletHistory(accessToken));
 ```
 
 ## Thanks 🙏
