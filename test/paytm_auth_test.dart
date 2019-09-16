@@ -11,18 +11,18 @@ void main() {
   test(
     'login',
     () async {
-      var loginToken = await initLogin(dotenv.env['PAYTM_USERNAME']);
+      var loginToken = await enterUsername(dotenv.env['PAYTM_USERNAME']);
       expect(loginToken, isNotNull);
       expect(loginToken, isNotEmpty);
 
-      var validateToken = await validatePassword(
+      var validateToken = await enterPassword(
         loginToken,
         dotenv.env['PAYTM_PASSWORD'],
       );
       expect(validateToken, isNotNull);
       expect(validateToken, isNotEmpty);
 
-      var oauthToken = await validateOtp(validateToken, await getOTPFromHTTP());
+      var oauthToken = await enterOTP(validateToken, await getOTPFromHTTP());
       expect(oauthToken, isNotNull);
       expect(oauthToken, isNotEmpty);
 

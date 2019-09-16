@@ -12,9 +12,8 @@ A wrapper on paytm internal APIs, reverse-engineered from the paytm app.
 import 'package:paytm_api/paytm_api.dart' as paytm;
 
 
-var loginToken = await paytm.initLogin('<phone number>');
-var validateToken = await paytm.validatePassword(loginToken, <passsword>);
-var oauthToken = await paytm.validateOtp(validateToken, <otp>);
+var loginToken = await paytm.login('<phone number>', '<password>');
+var oauthToken = await paytm.enterOTP(loginToken, '<otp>');
 var accessToken = await paytm.getAccessToken(oauthToken);
 ```
 

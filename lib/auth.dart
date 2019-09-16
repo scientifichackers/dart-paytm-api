@@ -23,7 +23,11 @@ class AccessToken {
   }
 }
 
-Future<String> initLogin(String username) async {
+Future<String> login(String username, String password) async {
+  return await enterPassword(await enterUsername(username), password);
+}
+
+Future<String> enterUsername(String username) async {
   var response = await http.post(
     "https://accounts.paytm.com/simple/login/init",
     body: jsonEncode({"loginId": username, "flow": "login"}),
@@ -36,7 +40,7 @@ Future<String> initLogin(String username) async {
   return jsonDecode(response.body)["stateToken"];
 }
 
-Future<String> validatePassword(String stateToken, String password) async {
+Future<String> enterPassword(String stateToken, String password) async {
   var response = await http.post(
     "https://accounts.paytm.com/simple/login/validate/password",
     body: jsonEncode({"password": password, "stateToken": stateToken}),
@@ -53,7 +57,7 @@ Future<String> validatePassword(String stateToken, String password) async {
   return json["stateToken"];
 }
 
-Future<String> validateOtp(String stateToken, String otp) async {
+Future<String> enterOTP(String stateToken, String otp) async {
   var response = await http.post(
     "https://accounts.paytm.com/simple/login/validate/otp",
     body: jsonEncode({"otp": otp, "stateToken": stateToken}),
