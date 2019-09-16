@@ -1,3 +1,5 @@
+[![pub package](https://img.shields.io/pub/v/paytm_api.svg?style=for-the-badge)](https://pub.dartlang.org/packages/paytm_api)
+
 # Paytm API
 
 A wrapper on paytm internal APIs, reverse-engineered from the paytm app.
