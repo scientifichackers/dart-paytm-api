@@ -2,7 +2,9 @@
 
 A wrapper on paytm internal APIs, reverse-engineered from the paytm app.
 
-## Generate Access token
+## Usage
+
+1. Generate Access token
 
 ```dart
 import 'package:paytm_api/paytm_api.dart' as paytm;
@@ -14,7 +16,7 @@ var oauthToken = await paytm.validateOtp(validateToken, <otp>);
 var accessToken = await paytm.getAccessToken(oauthToken);
 ```
 
-## Use Access token for full access to account
+2. Use Access token for full access to account
 
 ```dart
 print(await paytm.getPaytmWalletHistory(accessToken));
